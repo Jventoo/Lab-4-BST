@@ -23,9 +23,17 @@ void BST::insert(int item)
 	{
 		Node* search = root;
 		Node* parent = nullptr;
+		
+		bool duplicate = false;
 
 		while (search != nullptr)
 		{
+			if (item == search->data)
+			{
+				duplicate = true;
+				break;
+			}
+			
 			parent = search;
 
 			if (item < search->data)
@@ -33,13 +41,17 @@ void BST::insert(int item)
 			else
 				search = search->rlink;
 		}
+		
+		if (duplicate)
+			cerr << "The item (" + to_string(item) + 
+			") to insert is already in the list - duplicates are not allowed." << endl;
 
-		if (item < parent->data)
+		if (!duplicate && item < parent->data)
 		{
 			parent->llink = new Node();
 			parent->llink->data = item;
 		}
-		else
+		else if (!duplicate)
 		{
 			parent->rlink = new Node();
 			parent->rlink->data = item;
