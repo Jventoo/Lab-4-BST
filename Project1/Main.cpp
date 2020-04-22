@@ -1,3 +1,12 @@
+/*
+	Vento, Jack
+
+	April 22, 2020
+
+	CS A200
+	Lab 4: Binary Search Trees
+*/
+
 #include "BST.h"
 
 #include <iostream>
@@ -69,9 +78,20 @@ void testTree(const BST& bst)
 	//TEST: inorderTraversal
 	cout << "Inorder traversal: ";
 	bst.inorderTraversal();
+	cout << endl;
 
 	//Other test cases you need to create:
 	// Test preorder traversal
+	cout << "Preorder Traversal: ";
+	bst.preorderTraversal();
+	cout << endl;
+
 	// Test postorder traversal
+	cout << "Postorder Traversal: ";
+	bst.postorderTraversal();
+	cout << endl;
+
 	// Test total nodes
+	cout << "Total Nodes: ";
+	cout << bst.totalNodes() << endl;
 }
